@@ -6,6 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+console.log("GSAP", gsap.version);
+console.log("ScrollTrigger", ScrollTrigger);
+
 const Hero = () => {
   const imageRef  = useRef(null);
   const greetRef  = useRef(null);

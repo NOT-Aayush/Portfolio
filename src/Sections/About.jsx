@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
+console.log("GSAP of About", gsap.version);
+console.log("ScrollTrigger of About", ScrollTrigger);
 const About = () => {
 
   const sectionRef  = useRef(null);
