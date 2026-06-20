@@ -1,12 +1,8 @@
 import { useEffect, useRef } from "react";
 import person from "../assets/me111.png";
 import "../css/About.css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "../Components/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
-console.log("GSAP of About", gsap.version);
-console.log("ScrollTrigger of About", ScrollTrigger);
 const About = () => {
 
   const sectionRef  = useRef(null);

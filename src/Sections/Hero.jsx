@@ -1,13 +1,8 @@
 import { useEffect, useRef } from "react";
 import "../css/Hero.css";
 import person from "../assets/me111.png";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "../Components/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
-
-console.log("GSAP", gsap.version);
-console.log("ScrollTrigger", ScrollTrigger);
 
 const Hero = () => {
   const imageRef  = useRef(null);
