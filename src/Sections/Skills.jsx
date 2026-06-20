@@ -8,7 +8,9 @@ const ICONS = {
   "Node.js": "🟢", Express: "🚂", Electron: "💠", Prisma: "▲",
   PostgreSQL: "🐘", MongoDB: "🍃", MySQL: "🐬", SQLite: "📦",
   TensorFlow: "🤖", OpenCV: "👁️", NumPy: "🔢", Keras: "🧠",
-  Docker: "🐳", AWS: "☁️", GitHub: "🐙", Linux: "🐧", Vercel: "▲",
+  Docker: "🐳", AWS: "☁️", GitHub: "🐙", Linux: "🐧", Vercel: "▲",  Git: "🌿",
+  Nmap: "📡",Wireshark: "🦈","Burp Suite": "🕷️",Metasploit: "🎯",
+  "Network Security": "🛡️","Vulnerability Assessment": "🔍",
 };
 
 const ACCENT = {
@@ -18,6 +20,7 @@ const ACCENT = {
   "Databases":  "#f59e0b",
   "AI / ML":    "#f87171",
   "Tools":      "#38bdf8",
+  "Cybersecurity": "#ef4444",
 };
 
 const Skills = () => {

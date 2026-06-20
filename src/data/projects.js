@@ -1,27 +1,18 @@
 // Import images directly so Vite bundles them correctly
 import swsImg  from "../image/sws.jpeg";
 import osintImg from "../image/image.png";
+import mindImg from "../image/mc.png";
 
 export const projects = [
   {
     title: "MindConnect",
-    image: null,
+    image: mindImg,
     icon: "🧠",
     description:
       "Mental health web app connecting users with therapists and peers. Real-time support, AI mood tracking, and expert matching.",
     tech: "React • Node.js • PostgreSQL • Socket.io",
     github: "https://github.com/NOT-Aayush/MindConnect",
     live: "https://mind-connecter.vercel.app/?city=Delhi",
-  },
-  {
-    title: "MediScan",
-    image: null,
-    icon: "🩺",
-    description:
-      "Medical imaging software using OpenCV and ML for early anomaly detection. Supports X-ray, MRI, and CT scans.",
-    tech: "Python • OpenCV • TensorFlow • Electron",
-    github: "https://github.com/NOT-Aayush/MediScan",
-    live: null,
   },
   {
     title: "SpeakWithSigns",
@@ -31,6 +22,16 @@ export const projects = [
       "Real-time sign language translator using MediaPipe and a custom gesture model. Bridges communication gaps instantly.",
     tech: "React • TensorFlow.js • MediaPipe • Express",
     github: "https://github.com/NOT-Aayush/SpeakWithSigns",
+    live: null,
+  },
+  {
+    title: "MediScan",
+    image: null,
+    icon: "🩺",
+    description:
+      "Medical imaging software using OpenCV and ML for early anomaly detection. Supports X-ray, MRI, and CT scans.",
+    tech: "Python • OpenCV • TensorFlow • Electron",
+    github: "https://github.com/NOT-Aayush/MediScan",
     live: null,
   },
   {

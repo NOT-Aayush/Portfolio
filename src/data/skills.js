@@ -1,28 +1,76 @@
-// Skills data — category colours are now handled by CSS token variables
-// so the `color` field is no longer needed here.
 export const skills = [
   {
     category: "Languages",
-    items: ["Python", "Java", "JavaScript", "TypeScript", "C++"],
+    items: [
+      "Python",
+      "Java",
+      "JavaScript",
+      "SQL",
+    ],
   },
   {
     category: "Frontend",
-    items: ["React", "Vite", "Tailwind", "HTML", "CSS"],
+    items: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+    ],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "Electron", "Prisma"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "Electron.js",
+      "Prisma ORM",
+      "REST APIs",
+      "JWT Authentication"
+    ],
   },
   {
     category: "Databases",
-    items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "SQLite",
+      "Neon DB"
+    ],
   },
   {
     category: "AI / ML",
-    items: ["TensorFlow", "OpenCV", "NumPy", "Keras"],
+    items: [
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "NumPy",
+      "MediaPipe",
+      "Computer Vision",
+      "Deep Learning"
+    ],
   },
   {
-    category: "Tools",
-    items: ["Docker", "AWS", "GitHub", "Linux", "Vercel"],
+    category: "Cloud & DevOps",
+    items: [
+      "AWS",
+      "Docker",
+      "Git",
+      "GitHub",
+      "Vercel",
+      "Linux"
+    ],
+  },
+  {
+    category: "Cybersecurity",
+    items: [
+      "Nmap",
+      "Wireshark",
+      "Burp Suite",
+      "Metasploit",
+      "Network Security",
+      "Vulnerability Assessment"
+    ],
   },
 ];
