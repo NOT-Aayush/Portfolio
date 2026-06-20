@@ -62,40 +62,43 @@ const Hero = () => {
     setTimeout(() => animate(descRef.current,   0.15, 0.7), 400);
     setTimeout(() => animate(nameRef.current,   0.3,  0.7), 400);
     setTimeout(() => animate(titleRef.current,  0.5,  0.9), 400);
-    gsap.fromTo(
-  [
-    ".hero-greet",
-    ".hero-desc",
-    ".hero-name",
-    ".hero-title",
-    ".hero-line"
-  ],
-  {
-    opacity: 1,
-    y: 0
-  },
-  {
-    opacity: 0,
-    y: -80,
-
-    scrollTrigger: {
-      trigger: "#about",
-      start: "top 85%",
-      end: "top 45%",
-      scrub: true
-    }
-  }
-);
+    
     // Decorative line
     const line = lineRef.current;
     if (line) {
       setTimeout(() => { line.style.width = "180px"; }, 1000);
     }
+    const heroTween = gsap.fromTo(
+      [
+        ".hero-greet",
+        ".hero-desc",
+        ".hero-name",
+        ".hero-title",
+        ".hero-line"
+      ],
+      {
+        opacity: 1,
+        y: 0
+      },
+      {
+        opacity: 0,
+        y: -80,
+
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 85%",
+          end: "top 45%",
+          scrub: true
+        }
+      }
+    );
+
     return () => {
-    ScrollTrigger.getAll().forEach(t => t.kill());
-    if (container) {
-      container.remove();
-    }
+      heroTween.kill();
+
+      if (container) {
+        container.remove();
+      }
     };
   }, []);
 

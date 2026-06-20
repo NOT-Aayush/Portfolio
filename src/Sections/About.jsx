@@ -49,7 +49,7 @@ const About = () => {
       },
       { threshold: 0.15 }
     );
-    gsap.fromTo(
+    const imageTween = gsap.fromTo(
       imageRef.current,
       {
         x: -150,
@@ -70,7 +70,7 @@ const About = () => {
       }
     );
 
-    gsap.fromTo(
+    const contentTween = gsap.fromTo(
       contentRef.current,
       {
         x: -50,
@@ -89,7 +89,12 @@ const About = () => {
       }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+
+      imageTween.kill();
+      contentTween.kill();
+    };
   }, []);
 
   return (
