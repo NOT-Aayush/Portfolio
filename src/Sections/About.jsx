@@ -2,10 +2,6 @@ import { useEffect, useRef } from "react";
 import person from "../assets/me111.png";
 import "../css/About.css";
 import { gsap, ScrollTrigger } from "../Components/gsap";
-console.log(
-  "Hero ScrollTrigger:",
-  !!gsap.core.globals().ScrollTrigger
-);
 
 const About = () => {
 
