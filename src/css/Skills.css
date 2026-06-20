@@ -77,7 +77,7 @@
   padding: .5rem 1.3rem;
   border-radius: 50px;
   border: 1px solid var(--clr-border);
-  background: var(--clr-surface);
+  background: rgba(255,255,255,.04);
   color: var(--clr-text-muted);
   font-family: var(--font-display);
   font-size: .82rem;
@@ -92,7 +92,7 @@
 }
 .skills-tab:hover {
   color: var(--clr-text-primary);
-  border-color: var(--clr-accent-soft);
+  border-color: rgba(255,255,255,.18);
   transform: translateY(-2px);
 }
 .skills-tab.active {
@@ -121,7 +121,7 @@
   justify-content: center;
   gap: .55rem;
   padding: 1.3rem .9rem;
-  background: var(--clr-surface);
+  background: rgba(255,255,255,.04);
   border: 1px solid var(--clr-border);
   border-radius: var(--r-md);
   cursor: default;
@@ -135,11 +135,11 @@
 }
 
 .skill-item:hover {
-  background: var(--clr-surface-2);
+  background: rgba(255,255,255,.08);
   border-color: color-mix(in srgb, var(--accent, var(--clr-accent)) 60%, transparent);
   transform: translateY(-5px) scale(1.05);
   box-shadow:
-    0 8px 28px rgba(0,0,0,.2),
+    0 8px 28px rgba(0,0,0,.35),
     0 0 0 1px color-mix(in srgb, var(--accent, var(--clr-accent)) 30%, transparent);
 }
 
@@ -170,7 +170,7 @@
   position: relative;
   z-index: 1;
   padding: .55rem 1.3rem;
-  background: var(--clr-surface);
+  background: rgba(255,255,255,.04);
   border: 1px solid var(--clr-border);
   border-radius: 50px;
   border-left: 3px solid var(--accent, var(--clr-accent));
@@ -188,14 +188,14 @@
   letter-spacing: .04em;
 }
 
-/* Light theme — most overrides now handled by tokens, these are just reinforcements */
+/* Light theme */
 .light-theme .skill-item {
-  background: var(--clr-surface);
-  border-color: var(--clr-border);
+  background: rgba(0,0,0,.03);
+  border-color: rgba(0,0,0,.08);
 }
-.light-theme .skill-item:hover { background: var(--clr-surface-2); }
-.light-theme .skills-tab { background: var(--clr-surface); color: var(--clr-text-muted); }
-.light-theme .skills-meta { background: var(--clr-surface); border-color: var(--clr-border); }
+.light-theme .skill-item:hover { background: rgba(0,0,0,.06); }
+.light-theme .skills-tab { background: rgba(0,0,0,.04); color: var(--clr-text-muted); }
+.light-theme .skills-meta { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.08); }
 
 @media (max-width: 600px) {
   .skills-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); }
