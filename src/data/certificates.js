@@ -1,9 +1,4 @@
 export const certificates = [
-  {
-    title: "AWS Cloud Foundations",
-    issuer: "AWS",
-    description: "Cloud fundamentals and AWS services."
-  },
 
   {
     title: "Google IT Solutions",
@@ -11,9 +6,4 @@ export const certificates = [
     description: "Supervised and unsupervised learning."
   },
 
-  {
-    title: "Linux Administration",
-    issuer: "Cisco",
-    description: "Linux system management and networking."
-  }
 ];

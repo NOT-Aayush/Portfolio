@@ -176,7 +176,7 @@
 
 .contact-item:hover .icon-circle {
   background: var(--clr-accent);
-  color: white;
+  color: #fff;
   box-shadow: 0 0 16px rgba(124,58,237,.4);
 }
 
