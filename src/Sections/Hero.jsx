@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../css/Hero.css";
-import person from "../assets/m311.png";
+import person from "../assets/m31.png";
 import { gsap, ScrollTrigger } from "../Components/gsap";
 
 const Hero = () => {
@@ -127,7 +127,6 @@ const Hero = () => {
       <div id="hero-image-transition" className="hero-image" ref={(el) => {
           imageRef.current = el;
           }}>
-        <div className="hero-image-glow" />
         <img src={person} alt="Aayush Pandey" />
       </div>
 

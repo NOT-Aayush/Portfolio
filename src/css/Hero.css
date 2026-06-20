@@ -55,66 +55,52 @@
 
 /* ── IMAGE ────────────────────────────────────────────────── */
 .hero-image {
-  width: 640px;
-  height: 820px;
+  width: 820px;
+  height: 900px;
   position: absolute;
-  top: 75px;
-  right: 35%;
+  bottom: 0;      
+  top: auto;      
+  right: 30%;
   z-index: 1;
-  border-radius: 28px;
+
   /* Initial hidden state — JS animates in */
   opacity: 0;
   transform: translateY(30px) scale(0.96);
 }
 
-.hero-image::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 31px;
-  background: linear-gradient(135deg, var(--clr-accent), transparent 60%, var(--clr-accent-soft));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.hero-image.loaded::before {
-  opacity: 1;
-}
-
 .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 28px;
+  object-fit: contain;
+  transform-origin: center bottom;
   display: block;
   position: relative;
   z-index: 1;
 }
+/*Image glow*/
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 
-/* Glow ring around image */
-.hero-image-glow {
-  position: absolute;
-  inset: -20px;
-  border-radius: 48px;
-  background: transparent;
-  box-shadow: var(--shadow-accent);
-  z-index: 0;
-  animation: pulseGlow 4s ease-in-out infinite;
-  opacity: 0;
-  transition: opacity 1s ease 0.5s;
+  display: block;
+  position: relative;
+  z-index: 1;
+
+  filter:
+    drop-shadow(0 0 25px rgba(124,58,237,.35))
+    drop-shadow(0 0 60px rgba(124,58,237,.20));
 }
-
-.hero-image.loaded .hero-image-glow {
-  opacity: 1;
-}
-
 /* Float effect on image after load */
-.hero-image.transitioning {
-  animation: none !important;
-}
-.hero-image.loaded:not(.transitioning) {
-  animation: float 6s ease-in-out infinite;
+
+@keyframes textFloat {
+  0%,100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
 }
 /* ── TEXT ELEMENTS ────────────────────────────────────────── */
 .hero-greet {
@@ -129,6 +115,8 @@
   opacity: 0;
   transform: translateY(30px);
   letter-spacing: -0.01em;
+  animation: textFloat 5s ease-in-out infinite;
+
 }
 
 .hero-desc {
@@ -142,6 +130,8 @@
   opacity: 0;
   transform: translateY(30px);
   letter-spacing: 0.02em;
+  animation: textFloat 5s ease-in-out infinite 0.5s;
+
 }
 
 .hero-name {
@@ -156,15 +146,27 @@
   opacity: 0;
   transform: translateY(30px);
   letter-spacing: -0.01em;
+  animation: textFloat 5s ease-in-out infinite 1s;
+
+}
+@keyframes titleFloat {
+  0%,100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
 }
 
 .hero-title {
+  animation: titleFloat 6s ease-in-out infinite;
   font-family: 'Saira Stencil One', sans-serif;
   font-size: clamp(82px, 6vw, 120px);
   font-weight: 700;
   color: var(--clr-accent);
   position: absolute;
-  bottom: 120px;
+  bottom: 140px;
   right: 12%;
   z-index: 2;
   line-height: 1.1;
@@ -291,15 +293,11 @@
   .hero-image {
     position: relative;
 
-    width: min(80vw, 340px);
+    width: min(80vw, 490px);
     height: auto;
-
     aspect-ratio: 4 / 5;
-
     top: auto;
     right: auto;
-
-    margin-bottom: 1.5rem;
   }
 
   .hero-greet,
