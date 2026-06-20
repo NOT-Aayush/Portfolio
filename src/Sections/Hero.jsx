@@ -14,7 +14,6 @@ const Hero = () => {
 
   useEffect(() => {
     
-    // Create floating particles
     const section = sectionRef.current;
     let container;
 
@@ -48,26 +47,70 @@ const Hero = () => {
     // Image slides in first
     const img = imageRef.current;
     if (img) {
-      setTimeout(() => {
-        img.style.transition = "opacity 1s cubic-bezier(.22,1,.36,1), transform 1.2s cubic-bezier(.22,1,.36,1)";
-        img.style.opacity = "1";
-        img.style.transform = "translateY(0) scale(1)";
-        img.classList.add("loaded");
-      }, 200);
+      gsap.fromTo(
+        img,
+        {
+          opacity: 0,
+          y: 40,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          onComplete: () => img.classList.add("loaded"),
+        }
+      );
     }
 
     // Text pops in staggered
-    setTimeout(() => animate(greetRef.current,  0,   0.7), 400);
-    setTimeout(() => animate(descRef.current,   0.15, 0.7), 400);
-    setTimeout(() => animate(nameRef.current,   0.3,  0.7), 400);
-    setTimeout(() => animate(titleRef.current,  0.5,  0.9), 400);
+    gsap.fromTo(
+      [
+        greetRef.current,
+        descRef.current,
+        nameRef.current,
+        titleRef.current,
+      ],
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        delay: 0.4,
+      }
+    );
     
     // Decorative line
     const line = lineRef.current;
     if (line) {
-      setTimeout(() => { line.style.width = "180px"; }, 1000);
+      gsap.fromTo(
+        line,
+        {
+          width: 0,
+        },
+        {
+          width: 180,
+          duration: 0.8,
+          delay: 1,
+          ease: "power2.out",
+        }
+      );
     }
-    
+    gsap.to(".hero-scroll-hint", {
+      y: 10,
+      duration: 1.2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+        
 
     return () => {
       if (container) {
