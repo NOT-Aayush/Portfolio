@@ -1,6 +1,6 @@
 // Import images directly so Vite bundles them correctly
 import swsImg  from "../image/sws.jpeg";
-import osintImg from "../image/Osint.jpeg";
+import osintImg from "../image/image.png";
 
 export const projects = [
   {
