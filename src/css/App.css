@@ -1,0 +1,10 @@
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--clr-void);
+  color: var(--clr-text-primary);
+  transition: background var(--t-med), color var(--t-med);
+}

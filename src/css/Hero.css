@@ -1,0 +1,345 @@
+/* ============================================================
+   HERO  — full-screen, animated text & glowing image
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-hero);
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-top: 70px; /* navbar height */
+}
+
+/* Ambient glow orbs */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseOrb 8s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(124,58,237,.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseOrb 10s ease-in-out infinite reverse;
+}
+
+@keyframes pulseOrb {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.7; }
+}
+
+/* Grid texture */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-grid);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── IMAGE ────────────────────────────────────────────────── */
+.hero-image {
+  width: 640px;
+  height: 820px;
+  position: absolute;
+  top: 75px;
+  right: 35%;
+  z-index: 1;
+  border-radius: 28px;
+  /* Initial hidden state — JS animates in */
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 31px;
+  background: linear-gradient(135deg, var(--clr-accent), transparent 60%, var(--clr-accent-soft));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero-image.loaded::before {
+  opacity: 1;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glow ring around image */
+.hero-image-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 48px;
+  background: transparent;
+  box-shadow: var(--shadow-accent);
+  z-index: 0;
+  animation: pulseGlow 4s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.hero-image.loaded .hero-image-glow {
+  opacity: 1;
+}
+
+/* Float effect on image after load */
+.hero-image.transitioning {
+  animation: none !important;
+}
+.hero-image.loaded:not(.transitioning) {
+  animation: float 6s ease-in-out infinite;
+}
+/* ── TEXT ELEMENTS ────────────────────────────────────────── */
+.hero-greet {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: clamp(60px, 7vw, 110px);
+  font-weight: 600;
+  position: absolute;
+  top: 190px;
+  left: 20%;
+  z-index: 2;
+  color: var(--clr-text-primary);
+  opacity: 0;
+  transform: translateY(30px);
+  letter-spacing: -0.01em;
+}
+
+.hero-desc {
+  font-family: 'Saira Stencil One', sans-serif;
+  font-size: clamp(48px, 5.5vw, 82px);
+  position: absolute;
+  top: 310px;
+  right: 30%;
+  z-index: 2;
+  color: var(--clr-accent-bright);
+  opacity: 0;
+  transform: translateY(30px);
+  letter-spacing: 0.02em;
+}
+
+.hero-name {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: clamp(44px, 5vw, 78px);
+  font-weight: 700;
+  position: absolute;
+  top: 415px;
+  right: 5%;
+  z-index: 2;
+  color: var(--clr-text-primary);
+  opacity: 0;
+  transform: translateY(30px);
+  letter-spacing: -0.01em;
+}
+
+.hero-title {
+  font-family: 'Saira Stencil One', sans-serif;
+  font-size: clamp(82px, 6vw, 120px);
+  font-weight: 700;
+  color: var(--clr-accent);
+  position: absolute;
+  bottom: 120px;
+  right: 12%;
+  z-index: 2;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Decorative line under hero-desc */
+.hero-line {
+  position: absolute;
+  top: 410px;
+  left: 7%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--clr-accent), transparent);
+  z-index: 2;
+  transition: width 0.8s var(--ease-out);
+}
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeIn 1s ease 2.5s forwards;
+}
+.hero-scroll-hint span {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--clr-accent);
+  border-bottom: 2px solid var(--clr-accent);
+  transform: rotate(45deg);
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
+  50%       { transform: rotate(45deg) translateY(6px); opacity: 0.5; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 420px;
+    height: 540px;
+
+    margin-bottom: 2rem;
+  }
+
+  .hero-greet,
+  .hero-desc,
+  .hero-name,
+  .hero-title {
+    position: static;
+    text-align: center;
+  }
+
+  .hero-greet {
+    font-size: 4rem;
+  }
+
+  .hero-desc {
+    font-size: 2.5rem;
+  }
+
+  .hero-name {
+    font-size: 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    max-width: 700px;
+  }
+
+  .hero-line {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding:
+      90px
+      1.5rem
+      2rem;
+
+    text-align: center;
+    gap: 0;
+  }
+
+  .hero-image {
+    position: relative;
+
+    width: min(80vw, 340px);
+    height: auto;
+
+    aspect-ratio: 4 / 5;
+
+    top: auto;
+    right: auto;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-greet,
+  .hero-desc,
+  .hero-name,
+  .hero-title {
+
+    position: static;
+
+    opacity: 0;
+
+    text-align: center;
+  }
+
+  .hero-greet {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .hero-desc {
+    font-size: 1.5rem;
+    margin: 0.2rem 0;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+    margin: 0.2rem 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-top: 0.8rem;
+  }
+
+  .hero-line {
+    display: none;
+  }
+
+  .hero-scroll-hint {
+    bottom: 20px;
+  }
+}

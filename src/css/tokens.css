@@ -1,0 +1,100 @@
+/* ============================================================
+   DESIGN TOKENS — single source of truth
+   Theme: Deep space with electric violet accent (replaces red)
+   ============================================================ */
+
+:root {
+  /* ── BRAND PALETTE ─────────────────────────────────────── */
+  --clr-accent:        #7c3aed;        /* primary accent — electric violet */
+  --clr-accent-soft:   #8b5cf6;        /* hover / lighter */
+  --clr-accent-bright: #a78bfa;        /* glow / text highlight */
+  --clr-accent-dim:    rgba(124,58,237,.18);
+  --clr-accent-glow:   rgba(124,58,237,.35);
+
+  /* Keep --clr-red aliases so existing code doesn't break */
+  --clr-red:       var(--clr-accent);
+  --clr-red-soft:  var(--clr-accent-soft);
+  --clr-red-dim:   var(--clr-accent-dim);
+
+  /* Deep-space base */
+  --clr-void:       #07080f;
+  --clr-surface:    #0e1120;
+  --clr-surface-2:  #161929;
+  --clr-border:     rgba(255,255,255,.07);
+
+  /* Beautiful gradient replacing flat grey backgrounds */
+  --bg-accent: linear-gradient(
+    135deg,
+    #07080f 0%,
+    #0c1128 30%,
+    #0f1635 60%,
+    #07080f 100%
+  );
+
+  --bg-hero: linear-gradient(
+    160deg,
+    #05060d 0%,
+    #0a0d1f 40%,
+    #110e2a 70%,
+    #07080f 100%
+  );
+
+  /* Subtle grid */
+  --bg-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M0 0h1v60H0zM60 0h1v60H0M0 0v1h60V0M0 60v1h60V60' stroke='rgba(255,255,255,.025)' stroke-width='1'/%3E%3C/svg%3E");
+
+  /* ── TEXT ──────────────────────────────────────────────── */
+  --clr-text-primary:   #f0f0ff;
+  --clr-text-secondary: #b0b8d8;
+  --clr-text-muted:     #5a6480;
+
+  /* ── SKILL CARD PALETTE ─────────────────────────────────── */
+  --skill-languages:  #141828;
+  --skill-frontend:   #181428;
+  --skill-backend:    #141e2a;
+  --skill-databases:  #1a1428;
+  --skill-ai:         #1e1428;
+  --skill-tools:      #14201e;
+
+  /* ── TYPOGRAPHY ─────────────────────────────────────────── */
+  --font-display:  'Saira Stencil One', sans-serif;
+  --font-body:     'Sansita Swashed', cursive;
+  --font-mono:     'Tenali Ramakrishna', sans-serif;
+
+  /* ── SPACING SCALE ───────────────────────────────────────── */
+  --sp-xs:  .5rem;
+  --sp-sm:  1rem;
+  --sp-md:  2rem;
+  --sp-lg:  4rem;
+  --sp-xl:  8rem;
+
+  /* ── RADIUS ───────────────────────────────────────────────── */
+  --r-sm:   10px;
+  --r-md:   20px;
+  --r-lg:   30px;
+
+  /* ── SHADOWS ──────────────────────────────────────────────── */
+  --shadow-sm:     0 4px 16px rgba(0,0,0,.5);
+  --shadow-md:     0 16px 48px rgba(0,0,0,.6);
+  --shadow-accent: 0 0 60px rgba(124,58,237,.4), 0 0 20px rgba(124,58,237,.2);
+  --shadow-red:    var(--shadow-accent);
+
+  /* ── TRANSITIONS ─────────────────────────────────────────── */
+  --ease-out:   cubic-bezier(.22, 1, .36, 1);
+  --t-fast:     .2s var(--ease-out);
+  --t-med:      .5s var(--ease-out);
+  --t-slow:     .8s var(--ease-out);
+}
+
+/* ── LIGHT THEME ────────────────────────────────────────────── */
+.light-theme {
+  --clr-void:           #f0f2f8;
+  --clr-surface:        #ffffff;
+  --clr-surface-2:      #e8eaf4;
+  --clr-text-primary:   #0d1120;
+  --clr-text-secondary: #374160;
+  --clr-text-muted:     #9ca3c0;
+  --clr-border:         rgba(0,0,0,.08);
+  --bg-accent: linear-gradient(135deg,#eceef8 0%,#e4e6f4 50%,#eceef8 100%);
+  --bg-hero: linear-gradient(160deg,#f0f2f8 0%,#e8eaf4 50%,#f0f2f8 100%);
+  --bg-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 0h1v60H0zM60 0h1v60H0M0 0v1h60V0M0 60v1h60V60' stroke='rgba(0,0,0,.04)' stroke-width='1'/%3E%3C/svg%3E");
+}

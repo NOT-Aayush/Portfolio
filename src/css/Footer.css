@@ -1,0 +1,44 @@
+/* ============================================================
+   FOOTER  — replaces #66717E
+   ============================================================ */
+.footer {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  padding: 2rem 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--clr-text-muted);
+  font-size: .9rem;
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+}
+
+.footer-left { color: var(--clr-text-secondary); }
+
+.footer-right {
+  display: flex;
+  gap: .4rem;
+}
+
+.footer-heart {
+  color: var(--clr-red);
+  display: inline-block;
+  animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+.footer-line { display: none; }
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}

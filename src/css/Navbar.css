@@ -1,0 +1,126 @@
+/* ============================================================
+   NAVBAR  — updated accent color to violet
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(7,8,15,.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  z-index: 1000;
+  transition: background var(--t-med);
+}
+
+.light-theme .navbar {
+  background: rgba(240,242,248,.9);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--clr-accent-bright);
+  letter-spacing: .05em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.8rem;
+}
+
+.nav-links li {
+  color: var(--clr-text-secondary);
+  font-family: var(--font-display);
+  font-size: .95rem;
+  cursor: pointer;
+  transition: color var(--t-fast);
+  position: relative;
+  letter-spacing: .05em;
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--clr-accent);
+  border-radius: 2px;
+  transition: width var(--t-fast);
+}
+
+.nav-links li:hover,
+.nav-links li.active { color: var(--clr-text-primary); }
+
+.nav-links li:hover::after,
+.nav-links li.active::after { width: 100%; }
+
+/* THEME TOGGLE */
+.theme-toggle {
+  width: 56px;
+  height: 28px;
+  border: none;
+  border-radius: 50px;
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  cursor: pointer;
+  position: relative;
+  transition: background var(--t-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle.active {
+  background: var(--clr-accent-dim);
+  border-color: var(--clr-accent);
+}
+
+.toggle-circle {
+  width: 20px; height: 20px;
+  background: var(--clr-text-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px; left: 4px;
+  transition: transform var(--t-fast), background var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+.toggle-circle::before { content: '🌙'; }
+
+.theme-toggle.active .toggle-circle {
+  transform: translateX(28px);
+  background: var(--clr-accent);
+}
+.theme-toggle.active .toggle-circle::before { content: '☀️'; }
+
+/* Mobile */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--clr-text-primary);
+  border-radius: 2px;
+  transition: var(--t-fast);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
