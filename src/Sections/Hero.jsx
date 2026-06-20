@@ -8,10 +8,9 @@ console.log(
 );
 
 console.log(
-  "Hero Global:",
-  gsap.core.globals().ScrollTrigger
+  "Registered plugins:",
+  gsap.plugins
 );
-
 const Hero = () => {
   const imageRef  = useRef(null);
   const greetRef  = useRef(null);
