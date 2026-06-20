@@ -39,7 +39,7 @@ export const projects = [
     image: osintImg,
     icon: "🔍",
     description:
-      "AI-powered OSINT workspace for intelligence gathering and evidence analysis, built during DRDO internship.",
+      "AI-powered OSINT workspace for intelligence gathering and evidence analysis.",
     tech: "React • Express • PostgreSQL • LangChain",
     github: "https://github.com/NOT-Aayush/Investigation-AI",
     live: null,
