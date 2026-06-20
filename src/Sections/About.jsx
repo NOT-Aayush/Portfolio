@@ -49,7 +49,7 @@ const About = () => {
       },
       { threshold: 0.15 }
     );
-    const imageTween = gsap.fromTo(
+    gsap.fromTo(
       imageRef.current,
       {
         x: -150,
@@ -60,17 +60,12 @@ const About = () => {
         x: 0,
         opacity: 1,
         scale: 1,
-
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 80%",
-          end: "top 40%",
-          scrub: 1,
-        }
+        duration: 1.2,
+        ease: "power3.out",
       }
     );
 
-    const contentTween = gsap.fromTo(
+    gsap.fromTo(
       contentRef.current,
       {
         x: -50,
@@ -79,13 +74,9 @@ const About = () => {
       {
         x: 0,
         opacity: 1,
-
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 40%",
-          end: "top 15%",
-          scrub: 1,
-        }
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
       }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
