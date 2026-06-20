@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../css/Hero.css";
-import person from "../assets/me111.png";
+import person from "../assets/m311.png";
 import { gsap, ScrollTrigger } from "../Components/gsap";
 
 const Hero = () => {
