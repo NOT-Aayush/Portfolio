@@ -49,45 +49,7 @@ const About = () => {
       },
       { threshold: 0.15 }
     );
-    const imageTween = gsap.fromTo(
-      imageRef.current,
-      {
-        x: -150,
-        opacity: 0,
-        scale: 0.9,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        scale: 1,
 
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 80%",
-          end: "top 40%",
-          scrub: 1,
-        }
-      }
-    );
-
-    const contentTween = gsap.fromTo(
-      contentRef.current,
-      {
-        x: -50,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 40%",
-          end: "top 15%",
-          scrub: 1,
-        }
-      }
-    );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       observer.disconnect();
