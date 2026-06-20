@@ -74,6 +74,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.9s var(--ease-out) 0.2s, transform 0.9s var(--ease-out) 0.2s;
+  padding: 0 1rem;
 }
 
 .carousel-container.visible {
@@ -108,13 +109,9 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-
-  background: rgba(0,0,0,.4);
-
+  background: var(--clr-surface-2);
   padding: 1rem;
-
   opacity: .9;
-
   transition: opacity var(--t-med);
 }
 
@@ -176,7 +173,7 @@
 
 .project-overlay h2 {
   font-family: var(--font-body);
-  color: white;
+  color: #fff;
   font-size: clamp(1.8rem, 3.5vw, 3.5rem);
   line-height: 1.1;
   text-align: center;
@@ -226,7 +223,7 @@
 
 .project-links a {
   text-decoration: none;
-  color: white;
+  color: #fff;
   border: 1px solid rgba(255,255,255,.35);
   padding: .5rem 1rem;
   border-radius: var(--r-sm);
@@ -257,20 +254,25 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(255,255,255,.06);
+  background: var(--clr-surface);
   border: 1px solid var(--clr-border);
-  color: white;
+  color: var(--clr-text-primary);
   font-size: 1.3rem;
   cursor: pointer;
   transition: var(--t-fast);
   position: relative;
-  z-index: 2;
+  z-index: 10;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .carousel-btn:hover {
   background: var(--clr-accent);
   border-color: var(--clr-accent);
+  color: #fff;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(124,58,237,.4);
 }
@@ -287,7 +289,7 @@
 .project-dot {
   height: 8px;
   border-radius: 4px;
-  background: rgba(255,255,255,.2);
+  background: var(--clr-border);
   border: none;
   cursor: pointer;
   transition: all .3s var(--ease-out);
@@ -303,4 +305,25 @@
 @media (max-width: 900px) {
   .carousel { height: clamp(280px, 60vw, 420px); }
   .left-card, .right-card { opacity: .25; }
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    /* Ensure always visible on mobile */
+    background: var(--clr-surface);
+    border-color: var(--clr-accent);
+    color: var(--clr-accent);
+    box-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  .carousel-btn:hover {
+    background: var(--clr-accent);
+    color: #fff;
+  }
 }
