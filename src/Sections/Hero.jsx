@@ -1,22 +1,22 @@
 import { useEffect, useRef } from "react";
 import "../css/Hero.css";
 import person from "../assets/m31.png";
-import { gsap, ScrollTrigger } from "../Components/gsap";
+import { gsap } from "../Components/gsap";
 
 const Hero = () => {
-  const imageRef  = useRef(null);
-  const greetRef  = useRef(null);
-  const descRef   = useRef(null);
-  const nameRef   = useRef(null);
-  const titleRef  = useRef(null);
-  const lineRef   = useRef(null);
+  const imageRef   = useRef(null);
+  const greetRef   = useRef(null);
+  const descRef    = useRef(null);
+  const nameRef    = useRef(null);
+  const titleRef   = useRef(null);
+  const lineRef    = useRef(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    
     const section = sectionRef.current;
     let container;
 
+    // Particles
     if (section) {
       container = document.createElement("div");
       container.className = "particles";
@@ -36,28 +36,14 @@ const Hero = () => {
       section.appendChild(container);
     }
 
-    // Staggered pop-in animations
-    const animate = (el, delay, duration = 0.8) => {
-      if (!el) return;
-      el.style.transition = `opacity ${duration}s cubic-bezier(.22,1,.36,1) ${delay}s, transform ${duration}s cubic-bezier(.22,1,.36,1) ${delay}s`;
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0) scale(1)";
-    };
-
-    // Image slides in first
+    // Image slides in — only y + opacity + scale, never touch x/transform centering
     const img = imageRef.current;
     if (img) {
       gsap.fromTo(
         img,
+        { opacity: 0, y: 40, scale: 0.92 },
         {
-          opacity: 0,
-          y: 40,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
+          opacity: 1, y: 0, scale: 1,
           duration: 1.2,
           ease: "power4.out",
           onComplete: () => img.classList.add("loaded"),
@@ -65,58 +51,29 @@ const Hero = () => {
       );
     }
 
-    // Text pops in staggered
+    // Text: only opacity + y — no xPercent, no transform conflicts
     gsap.fromTo(
-      [
-        greetRef.current,
-        descRef.current,
-        nameRef.current,
-        titleRef.current,
-      ],
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        delay: 0.4,
-      }
+      [greetRef.current, descRef.current, nameRef.current, titleRef.current],
+      { opacity: 0, y: 28 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", delay: 0.4 }
     );
-    
-    // Decorative line
+
+    // Decorative line (desktop only — hidden on mobile via CSS)
     const line = lineRef.current;
     if (line) {
-      gsap.fromTo(
-        line,
-        {
-          width: 0,
-        },
-        {
-          width: 180,
-          duration: 0.8,
-          delay: 1,
-          ease: "power2.out",
-        }
-      );
+      gsap.fromTo(line, { width: 0 }, { width: 180, duration: 0.8, delay: 1, ease: "power2.out" });
     }
-    gsap.to(".hero-scroll-hint", {
-      y: 10,
-      duration: 1.2,
+
+    // Scroll hint bob — use transform only on the inner wrapper, not the positioned container
+    gsap.to(".scroll-arrow", {
+      y: 6,
+      duration: 1.1,
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
     });
-        
 
-    return () => {
-      if (container) {
-        container.remove();
-      }
-    };
+    return () => { if (container) container.remove(); };
   }, []);
 
   return (
@@ -124,18 +81,18 @@ const Hero = () => {
       <div className="hero-grid" />
 
       {/* Glowing image */}
-      <div id="hero-image-transition" className="hero-image" ref={(el) => {
-          imageRef.current = el;
-          }}>
+      <div className="hero-image" ref={imageRef}>
         <img src={person} alt="Aayush Pandey" />
       </div>
 
-      {/* Animated text */}
-      <h2 className="hero-greet"  ref={greetRef}>Hi!</h2>
-      <p  className="hero-desc"   ref={descRef}>I am</p>
-      <div className="hero-line"  ref={lineRef} />
-      <h2 className="hero-name"   ref={nameRef}>Aayush Pandey</h2>
-      <h1 className="hero-title"  ref={titleRef}>AI &amp; Full Stack Developer</h1>
+      {/* Text group — on mobile this becomes a flex column via CSS */}
+      <div className="hero-text">
+        <h2 className="hero-greet" ref={greetRef}>Hi!</h2>
+        <p  className="hero-desc"  ref={descRef}>I am</p>
+        <div className="hero-line" ref={lineRef} />
+        <h2 className="hero-name"  ref={nameRef}>Aayush Pandey</h2>
+        <h1 className="hero-title" ref={titleRef}>AI &amp; Full Stack Developer</h1>
+      </div>
 
       {/* Scroll hint */}
       <div className="hero-scroll-hint">
