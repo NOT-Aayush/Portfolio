@@ -91,9 +91,6 @@ const About = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       observer.disconnect();
-
-      imageTween.kill();
-      contentTween.kill();
     };
   }, []);
 
