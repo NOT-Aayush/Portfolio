@@ -67,7 +67,30 @@ const Hero = () => {
     if (line) {
       setTimeout(() => { line.style.width = "180px"; }, 1000);
     }
-    
+    const heroTween = gsap.fromTo(
+      [
+        ".hero-greet",
+        ".hero-desc",
+        ".hero-name",
+        ".hero-title",
+        ".hero-line"
+      ],
+      {
+        opacity: 1,
+        y: 0
+      },
+      {
+        opacity: 0,
+        y: -80,
+
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 85%",
+          end: "top 45%",
+          scrub: true
+        }
+      }
+    );
 
     return () => {
       heroTween.kill();
