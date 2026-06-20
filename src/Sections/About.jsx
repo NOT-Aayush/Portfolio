@@ -49,42 +49,40 @@ const About = () => {
       },
       { threshold: 0.15 }
     );
+    gsap.fromTo(
+      imageRef.current,
+      {
+        x: -150,
+        opacity: 0,
+        scale: 0.9,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 1.2,
+        ease: "power3.out",
+      }
+    );
 
+    gsap.fromTo(
+      contentRef.current,
+      {
+        x: -50,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+      }
+    );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       observer.disconnect();
-
-      gsap.fromTo(
-        imageRef.current,
-        {
-          x: -150,
-          opacity: 0,
-          scale: 0.9,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.2,
-          ease: "power4.out",
-        }
-      );
-
-      gsap.fromTo(
-        contentRef.current,
-        {
-          x: 80,
-          opacity: 0,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.3,
-          ease: "power3.out",
-        }
-      );
-      };
+    };
   }, []);
 
   return (
