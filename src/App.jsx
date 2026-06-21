@@ -7,6 +7,7 @@ import Experience from './Sections/Experience.jsx'
 import Skills from './Sections/Skills.jsx'
 import Contact from './Sections/Contact.jsx'
 import Footer from './Sections/Footer.jsx'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Contact />
       <Footer />
     </main>
+    <Analytics />
     </>
   )
 }
