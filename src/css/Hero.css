@@ -278,3 +278,9 @@
 
   .hero-scroll-hint { visibility: hidden;}
 }
+@media (max-width: 1366px) and (min-width: 901px) {
+  .hero-image {
+    width: 100%;
+    height: 72vh;
+  }
+}
