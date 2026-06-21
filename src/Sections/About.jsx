@@ -121,7 +121,7 @@ const About = () => {
         </p>
 
         <div className="about-tags" ref={tagsRef}>
-          {["React", "Node.js", "Python", "TensorFlow", "PostgreSQL", "AWS"].map(tag => (
+          {["React","Express", "Node.js", "Python", "TensorFlow", "PostgreSQL", "AWS"].map(tag => (
             <span key={tag} className="about-tag">{tag}</span>
           ))}
         </div>
