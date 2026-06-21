@@ -52,7 +52,7 @@
 /* ── IMAGE ────────────────────────────────────────────────── */
 .hero-image {
   width: 820px;
-  height: 900px;
+  height: min(900px, 80vh);
   position: absolute;
   bottom: 0;
   top: auto;
@@ -264,7 +264,7 @@
   }
 
   .hero-image { height: 72vh; 
-      left: 30px;
+      left: 5px;
       bottom: 25px;
 }
 
@@ -277,10 +277,4 @@
   }
 
   .hero-scroll-hint { visibility: hidden;}
-}
-@media (max-width: 1366px) and (min-width: 901px) {
-  .hero-image {
-    width: 100%;
-    height: 72vh;
-  }
 }
