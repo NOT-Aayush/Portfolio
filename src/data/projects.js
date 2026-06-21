@@ -12,7 +12,7 @@ export const projects = [
       "Mental health web app connecting users with therapists and peers. Real-time support, AI mood tracking, and expert matching.",
     tech: "React • Node.js • PostgreSQL • Socket.io",
     github: "https://github.com/NOT-Aayush/MindConnect",
-    live: "https://mind-connecter.vercel.app/?city=Delhi",
+    live: "https://mediscan.aayushpandey.in/?city=Delhi",
   },
   {
     title: "SpeakWithSigns",
