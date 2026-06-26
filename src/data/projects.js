@@ -1,5 +1,5 @@
 // Import images directly so Vite bundles them correctly
-import swsImg  from "../image/sws.jpeg";
+import swsImg  from "../image/sws.png";
 import osintImg from "../image/image.png";
 import mindImg from "../image/mc.png";
 
