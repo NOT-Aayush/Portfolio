@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import "../css/Contact.css";
 
 const LINKS = [
