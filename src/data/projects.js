@@ -22,7 +22,7 @@ export const projects = [
       "Real-time sign language translator using MediaPipe and a custom gesture model. Bridges communication gaps instantly.",
     tech: "React • TensorFlow.js • MediaPipe • Express",
     github: "https://github.com/NOT-Aayush/SpeakWithSigns",
-    live: null,
+    live: "https://speakwithsign.aayushpandey.in",
   },
   {
     title: "MediScan",
