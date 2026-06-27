@@ -1,7 +1,9 @@
 // Import images directly so Vite bundles them correctly
 import swsImg  from "../image/sws.png";
-import osintImg from "../image/image.png";
+import osintImg from "../image/osint.png";
 import mindImg from "../image/mc.png";
+import mediImg from "../image/mediS.png";
+
 
 export const projects = [
   {
@@ -26,7 +28,7 @@ export const projects = [
   },
   {
     title: "MediScan",
-    image: null,
+    image: mediImg,
     icon: "🩺",
     description:
       "Medical imaging software using OpenCV and ML for early anomaly detection. Supports X-ray, MRI, and CT scans.",
